@@ -1,0 +1,38 @@
+{
+  "persons": [
+    {
+      "userId": 1,
+      "login": "ivan",
+      "password": "1234",
+      "listsId": 1,
+      "tasksId": 1,
+      "lists": {
+        "id": 1,
+        "name": "Продажи"
+      },
+      "tasks": {
+        "id": 1,
+        "listId": 2,
+        "text": "Изучить JavaScript",
+        "completed": false
+      }
+    },
+    {
+      "userId": 2,
+      "login": "ivan",
+      "password": "1234",
+      "listsId": 1,
+      "tasksId": 1,
+      "lists": {
+        "id": 1,
+        "name": "Продажи"
+      },
+      "tasks": {
+        "id": 1,
+        "listId": 2,
+        "text": "Изучить JavaScript",
+        "completed": false
+      }
+    }
+  ]
+}
