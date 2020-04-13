@@ -126,7 +126,7 @@ const App = () => {
       <div className={style.todo}>
         {users !== null &&
           users.map((u) => {
-            return u.login === "ivan" && <Redirect to={"profile/lists/1"} />;
+            return u.login === "ivadn" && <Redirect to={"profile/lists/1"} />;
           })}
         <Route
           path="/profile"
