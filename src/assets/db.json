@@ -1,8 +1,8 @@
 {
   "users": [
     {
-      "userId": 1,
-      "login": "ivan",
+      "id": 1,
+      "login": "ВАдим",
       "password": "1234",
       "listsId": 1,
       "tasksId": 1,
@@ -30,16 +30,6 @@
       "id": 3,
       "name": "Фильмы и сериалы",
       "colorId": 3
-    },
-    {
-      "name": "ваываыв",
-      "colorId": 3,
-      "id": 4
-    },
-    {
-      "name": "GGG",
-      "colorId": 3,
-      "id": 5
     }
   ],
   "tasks": [
@@ -75,15 +65,9 @@
     },
     {
       "listId": 1,
-      "text": "qweqwe",
+      "text": "Молоко",
       "completed": false,
       "id": 8
-    },
-    {
-      "listId": 4,
-      "text": "Купить 1984!",
-      "completed": true,
-      "id": 10
     },
     {
       "listId": 2,
@@ -93,15 +77,9 @@
     },
     {
       "listId": 1,
-      "text": "ываываываыв",
+      "text": "Хлеб",
       "completed": false,
       "id": 13
-    },
-    {
-      "listId": 5,
-      "text": "asdasdasd",
-      "completed": false,
-      "id": 14
     }
   ],
   "colors": [

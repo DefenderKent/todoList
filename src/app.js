@@ -6,6 +6,8 @@ import axios from "axios";
 import { Route, useHistory } from "react-router-dom";
 import { AddButtonList, List, Tasks, Header } from "./components";
 import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
+
 const App = () => {
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
@@ -26,6 +28,25 @@ const App = () => {
     });
   }, []);
 
+  const logout = (id, title) => {
+    const newList = users.map((item) => {
+      if (item.id === id) {
+        item.name = title;
+      }
+      return item;
+    });
+    setusers(newList);
+  };
+  const login = (id, title) => {
+    const newList = users.map((item) => {
+      if (item.id === id) {
+        item.name = title;
+      }
+      return item;
+    });
+
+    setusers(newList);
+  };
   const onAddList = (obj) => {
     const newList = [...lists, obj];
     setLists(newList);
@@ -120,13 +141,45 @@ const App = () => {
 
   return (
     <div className={style.container}>
-      <Header users={users} />
-      <Route path="/login" exact render={() => <Login />} />
+      <Route path="/profile">
+        {users !== null &&
+          users.map((us) => {
+            return (
+              <Header
+                id={us.id}
+                login={us.login}
+                logout={logout}
+                setusers={setusers}
+              />
+            );
+          })}
+      </Route>
+      {/* <Route path="/login" exact>
+        {users !== null &&
+          users.map((lo) => {
+            return (
+              <Login
+                id={lo.id}
+                login={lo.login}
+                loginF={login}
+                setusers={setusers}
+              />
+            );
+          })}
+      </Route> */}
+      <Route
+        path="/login"
+        exact
+        render={() => (
+          <Login login={login} users={users} onAddList={onAddList} />
+        )}
+      />
+      <Route path="/register" exact render={() => <Register />} />
 
       <div className={style.todo}>
         {users !== null &&
           users.map((u) => {
-            return u.login === "ivadn" && <Redirect to={"profile/lists/1"} />;
+            return u.login === "ivadn" && <Redirect to={"/login"} />;
           })}
         <Route
           path="/profile"
@@ -172,7 +225,7 @@ const App = () => {
                     isRemovable
                   />
                 ) : (
-                  "Занрузка"
+                  "Загрузка"
                 )}
               </div>
             </div>

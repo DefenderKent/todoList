@@ -10,7 +10,7 @@ import Badge from "../Badge/Badge";
 
 const AddButtonList = ({ colors, onAdd }) => {
   const [lists, setLists] = useState(null);
-  const [seletedColor, selectColor] = useState(3);
+  const [seletedColor, selectColor] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
@@ -28,7 +28,7 @@ const AddButtonList = ({ colors, onAdd }) => {
 
   const addList = () => {
     if (!inputValue) {
-      return alert("123");
+      return alert("введите назавание");
     }
     const color = colors.filter((c) => c.id === seletedColor)[0].name;
     setIsLoading(true);

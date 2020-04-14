@@ -33,9 +33,7 @@ const Tasks = ({
         {list.name} <img onClick={editTitle} src={edit} alt="" />
       </h2>
       <div className="tasks__items">
-        {!withoutEmpty && list.tasks && !list.tasks.length && (
-          <h2>Задачи отсутствуют</h2>
-        )}
+        {!withoutEmpty && list.tasks && !list.tasks.length && ""}
         <AddTaskForm key={list.id} list={list} onAddTask={onAddTask} />
         {list.tasks.map((task) => (
           <Task
