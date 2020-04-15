@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 import "./Login.scss";
 
 const Login = (props) => {
-  debugger;
   let history = useHistory();
   const startapp = () => {};
   const Id = () => {
@@ -14,7 +13,7 @@ const Login = (props) => {
   const [inputValue, setInputValue] = useState("");
 
   const loginClick = () => {
-    if (inputValue) {
+    if (inputValue === "Smit") {
       props.login(Id(), inputValue);
 
       axios
@@ -24,6 +23,7 @@ const Login = (props) => {
         .then((res) => {
           if (res.status === 200) return history.push("/profile");
         });
+
       setInputValue("");
     }
   };

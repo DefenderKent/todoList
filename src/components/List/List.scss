@@ -12,6 +12,7 @@
     opacity: 0;
   }
   li {
+    position: relative;
     display: flex;
     align-items: center;
     margin-bottom: 5px;
@@ -58,4 +59,10 @@
       background-color: #ffbbcc;
     }
   }
+}
+.dataTime {
+  position: absolute;
+  font-size: 13px;
+  top: 35px;
+  left: 42px;
 }

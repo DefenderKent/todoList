@@ -1,9 +1,19 @@
 import React from "react";
 
-const Task = ({ id, text, completed, list, onRemove, onEdit, onComplete }) => {
+const Task = ({
+  id,
+  text,
+  completed,
+  list,
+  onRemove,
+  onEdit,
+  onComplete,
+  datecreation,
+}) => {
   const onChangeCheckbox = (e) => {
     onComplete(list.id, id, e.target.checked);
   };
+  debugger;
   return (
     <div key={id} className="tasks__items-row">
       <div className="checkbox">
@@ -31,7 +41,11 @@ const Task = ({ id, text, completed, list, onRemove, onEdit, onComplete }) => {
           </svg>
         </label>
       </div>
-      <p>{text}</p>
+      <p>
+        {text}
+        <div className="taskDatacr">Создано{list.datecreation}</div>
+      </p>
+
       <div className="tasks__items-row-actions">
         <div onClick={() => onEdit(list.id, { id, text })}>
           <svg

@@ -39,7 +39,7 @@ const AddTaskForm = ({ list, onAddTask }) => {
       {!visibleForm ? (
         <div onClick={toggleFormVisible} className="tasks__form-new">
           <img src={addSvg} alt="Add icon" />
-          <span>Новая задача</span>
+          <span>Новая подзадача</span>
         </div>
       ) : (
         <div className="tasks__form-block">
