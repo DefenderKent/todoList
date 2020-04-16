@@ -1,58 +1,74 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import {
+  required,
+  maxLengthCreator,
+  notlogin,
+  notPassword,
+} from "./../../utils/validators/validators";
+import { Redirect } from "react-router-dom";
+import { Field, reduxForm } from "redux-form";
 import { Route, useHistory } from "react-router-dom";
+import { connect } from "react-redux";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import { Input } from "./../common/FormControls/FormControls";
 import "./Login.scss";
-
-const Login = (props) => {
-  let history = useHistory();
-  const startapp = () => {};
-  const Id = () => {
-    if (props !== null) return props.users.map((u) => u.id);
-  };
-  const [inputValue, setInputValue] = useState("");
-
-  const loginClick = () => {
-    if (inputValue === "Smit") {
-      props.login(Id(), inputValue);
-
-      axios
-        .patch("http://localhost:3001/users/" + Id(), {
-          login: inputValue,
-        })
-        .then((res) => {
-          if (res.status === 200) return history.push("/profile");
-        });
-
-      setInputValue("");
-    }
-  };
-
+import styles from "./../common/FormControls/FormControls.module.css";
+let maxLength30 = maxLengthCreator(50);
+const LoginForm = (props) => {
   return (
-    <>
-      <div className="loginForm">
-        <h2 className="loginAuth">Авторизация</h2>
-        <input
-          type="text"
-          placeholder="Логин*"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+    <form onSubmit={props.handleSubmit} className="loginForm">
+      <h2 className="loginAuth">Авторизация</h2>
+      <div>
+        <Field
+          placeholder={"Login*"}
+          name={"login"}
+          component={Input}
+          validate={[required, maxLength30, notlogin]}
         />
-        <input type="text" placeholder="Пароль*" />
-        <p>* поле обязательное для заполнения</p>
-        <button onClick={loginClick}>Войти</button>
+      </div>
+      <div>
+        <Field
+          placeholder={"Password*"}
+          name={"password"}
+          type={"password"}
+          component={Input}
+          validate={[required, maxLength30, notPassword]}
+        />
+      </div>
 
+      {props.error && (
+        <div className={styles.formSummaryError}>{props.error}</div>
+      )}
+      <div>
+        <button>Войти</button>
         <NavLink to="/register">
           <a href="#">Нет аккаунта? Регистрация</a>
         </NavLink>
-      </div>{" "}
-      {/* <div className="loginForm popupLogin">
-        <h3>Регистрация прошла успешно</h3>
-        <button onClick={startapp}>Начать работу</button>
-        <div className="ovarlay"></div>
-      </div> */}
+      </div>
+    </form>
+  );
+};
+const LoginReduxForm = reduxForm({
+  form: "login",
+})(LoginForm);
+
+const Login = (props) => {
+  let history = useHistory();
+  const onSubmit = (formData) => {
+    debugger;
+    if (formData.login === "Smit" && formData.password === "1234") {
+      return history.push("/profile");
+    }
+    // return notlogin(formData.login, formData.password);
+  };
+  return (
+    <>
+      <LoginReduxForm onSubmit={onSubmit} />
     </>
   );
 };
-
-export default Login;
+const mapStateToProps = (props) => ({
+  login: props.name,
+});
+export default connect(mapStateToProps, {})(Login);

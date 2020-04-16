@@ -185,3 +185,17 @@
 .taskDatacr {
   font-size: 13px;
 }
+.checkBg {
+  background-color: #64c4ed;
+}
+@media (max-width: 400px) {
+  .list li .list__remove-icon {
+    opacity: 0.8;
+    transition: 0.5s;
+  }
+  .tasks__items-row-actions {
+    display: flex;
+    opacity: 0.8;
+    transition: opacity 0.15s ease-in-out;
+  }
+}

@@ -77,3 +77,24 @@ body {
   border-right: 1px solid #d8d8d8;
   border-left: 1px solid #d8d8d8;
 }
+@media (max-width: 1100px) {
+  .todo {
+    flex-direction: column;
+    &__sidebar {
+      width: initial;
+      padding: 10px 10px;
+    }
+    &__tasks {
+      flex: 1;
+      padding-right: 10px;
+
+      padding-left: 38px;
+      p {
+        margin-right: 10px;
+      }
+    }
+  }
+  .taskBorder {
+    margin-right: 0;
+  }
+}

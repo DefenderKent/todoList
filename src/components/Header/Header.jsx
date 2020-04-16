@@ -7,7 +7,7 @@ import axios from "axios";
 const Header = (props) => {
   let history = useHistory();
   const logoutClick = () => {
-    history.push("/login");
+    history.push("/");
   };
 
   return (

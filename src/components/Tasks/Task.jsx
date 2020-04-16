@@ -1,5 +1,5 @@
 import React from "react";
-
+import classNames from "classnames";
 const Task = ({
   id,
   text,
@@ -13,7 +13,10 @@ const Task = ({
   const onChangeCheckbox = (e) => {
     onComplete(list.id, id, e.target.checked);
   };
-  debugger;
+  const completedClass = () => {
+    if (completed) return "checkBg";
+  };
+
   return (
     <div key={id} className="tasks__items-row">
       <div className="checkbox">

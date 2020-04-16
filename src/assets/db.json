@@ -3,68 +3,65 @@
     {
       "id": 1,
       "login": "Smit",
-      "password": "1234",
-      "listsId": 1,
-      "tasksId": 1,
-      "sroch": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ]
+      "password": "1234"
     }
   ],
   "lists": [
     {
-      "id": 1,
-      "name": "Сходить в магаз2",
-      "datecreation": "15:28 15/04/2020",
-      "colorId": 3
+      "name": "Сходить в магазин",
+      "datecreation": "14:28 16/04/2020",
+      "colorId": 3,
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Фронтенд",
-      "datecreation": "12:28 15/04/2020",
-      "colorId": 4
+      "name": "Посмотреть видео",
+      "datecreation": "15:28 15/04/2020",
+      "colorId": 4,
+      "id": 2
+    },
+    {
+      "name": "Test",
+      "datecreation": "15:28 15/04/2020",
+      "colorId": 1,
+      "id": 3
     }
   ],
   "tasks": [
     {
-      "id": 1,
       "listId": 2,
-      "text": "Изучить JavaScript",
-      "completed": false
+      "text": "1 видео",
+      "completed": true,
+      "id": 1
     },
     {
-      "id": 2,
       "listId": 2,
-      "text": "Изучить паттерны проектирования",
-      "completed": false
-    },
-    {
-      "id": 3,
-      "listId": 2,
-      "text": "ReactJS Hooks (useState, useReducer, useEffect и т.д.)",
-      "completed": true
-    },
-    {
-      "id": 4,
-      "listId": 2,
-      "text": "Redux (redux-observable, redux-saga)",
-      "completed": false
+      "text": "Фильм",
+      "completed": true,
+      "id": 2
     },
     {
       "listId": 1,
-      "text": "Молоко",
+      "text": "Купить молоко",
       "completed": false,
-      "id": 8
+      "id": 3
     },
     {
       "listId": 1,
-      "text": "Хлеб",
+      "text": "Купить хлеб",
       "completed": false,
-      "id": 13
+      "id": 4
+    },
+    {
+      "listId": 1,
+      "text": "Чипсы",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "listId": 3,
+      "text": "test 1",
+      "completed": false,
+      "id": 6
     }
   ],
   "colors": [
