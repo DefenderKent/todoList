@@ -44,10 +44,10 @@ const Task = ({
           </svg>
         </label>
       </div>
-      <p>
+      <div className="pDiv">
         {text}
         <div className="taskDatacr">Создано{list.datecreation}</div>
-      </p>
+      </div>
 
       <div className="tasks__items-row-actions">
         <div onClick={() => onEdit(list.id, { id, text })}>
